@@ -10,24 +10,26 @@ LIBS = -lnds7 -ldswifi7 \
 		-lm -lg -lsysbase -lc -lgcc \
 	   	-nodefaultlibs
 
-ARCHFLAGS = -mthumb \
-  			-mthumb-interwork \
-			-mcpu=arm7tdmi \
-			-mtune=arm7tdmi \
-			-DARM7
-
-CFLAGS = -Wall -Os \
+ARCHFLAGS = -mthumb-interwork
+			
+CFLAGS = -DNDEBUG -Wall -Os \
 		 -ffunction-sections \
 		 -fdata-sections \
 		 -fomit-frame-pointer \
 		 -ffast-math \
+		 -mcpu=arm7tdmi \
+		 -mtune=arm7tdmi \
+		 -DARM7 \
 		 $(ARCHFLAGS)
 
 ASFLAGS = -x assembler-with-cpp \
 		  $(ARCHFLAGS)
 
-LDFLAGS	= -specs=arm7.specs \
-		  $(ARCHFLAGS)
+LDFLAGS	= -specs=arm7_vram.specs \
+		  -g $(ARCHFLAGS) \
+		  -Wl,--gc-sections \
+		  -Wl,--section-start,.crt0=0x06020000,--nmagic
+
 
 # Toolchain
 CC = arm-none-eabi-gcc

@@ -16,23 +16,24 @@ INCLUDE_FLAGS = -I$(BUILD_DIR)
 ARCHFLAGS = -mthumb \
   			-mthumb-interwork \
 			-march=armv5te \
-			-mtune=arm946e-s \
-			-DARM9
+			-mtune=arm946e-s
 
-CFLAGS = -Wall -Os \
+CFLAGS = -g -flto -DNDEBUG -Wall -Os \
 		 -ffunction-sections \
 		 -fdata-sections \
 		 -fomit-frame-pointer \
 		 -ffast-math \
 		 $(ARCHFLAGS) \
-		 $(INCLUDE_FLAGS)
+		 $(INCLUDE_FLAGS) \
+		 -DARM9
 
 ASFLAGS = -x assembler-with-cpp \
 		  $(ARCHFLAGS)
 
-LDFLAGS	= -specs=arm9.specs \
-		  -mcpu=arm946e-s \
-		  $(ARCHFLAGS)
+LDFLAGS	= -specs=dsi_arm9.specs \
+		-g -flto $(ARCHFLAGS) \
+		-Wl,--gc-sections \
+		-Wl,--section-start,.crt0=0x02e40000
 
 # Toolchain
 CC = arm-none-eabi-gcc
