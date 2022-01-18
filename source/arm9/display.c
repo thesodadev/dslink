@@ -15,9 +15,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-#include <nds.h>
+#include <nds/nds.h>
 
-#include "font_bin.h"
+#include "font.h"
 //---------------------------------------------------------------------------------
 // upcvt_4bit()
 // Convert a 1-bit font to GBA 4-bit format.

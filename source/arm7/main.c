@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-#include <nds.h>
-#include <dswifi7.h>
+#include <nds/nds.h>
+#include <dswifi/dswifi7.h>
 
 
 #include "memcpy.h"

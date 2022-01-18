@@ -1,3 +1,4 @@
+
 	.global	_start
 
 _start:
@@ -61,9 +62,9 @@ waitsync:
 
 	.align 2
 arm7bin:
-	.incbin	"data/dslink.arm7.exo"
+	.incbin	"build/arm7/dslink.exo"
 endarm7:
 	.align 2
 arm9bin:
-	.incbin	"data/dslink.arm9.exo"
+	.incbin	"build/arm9/dslink.exo"
 endarm9:

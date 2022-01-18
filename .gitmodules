@@ -1,3 +1,0 @@
-[submodule "host/source"]
-	path = host/source
-	url = git@github.com:devkitPro/dslink-host.git

@@ -1,8 +1,8 @@
-#include <nds.h>
-#include <dswifi9.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
+#include <nds/nds.h>
+#include <dswifi/dswifi9.h>
+#include <dswifi/sys/socket.h>
+#include <dswifi/netinet/in.h>
+#include <dswifi/netdb.h>
 #include <stdio.h>
 #include <errno.h>
 
