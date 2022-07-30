@@ -21,4 +21,4 @@ dslink.nds: build/bootstub/arm7/bootstub.elf build/bootstub/arm9/bootstub.elf
 	
 install: build/dslink.nds
 	install -d $(DESTDIR)/opt/nds
-	install -m 644 $@ $(DESTDIR)/opt/nds
+	install -m 644 build/dslink.nds $(DESTDIR)/opt/nds
