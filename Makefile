@@ -18,3 +18,7 @@ bootstub_arm9: bootstub_arm9.mk
 dslink.nds: build/bootstub/arm7/bootstub.elf build/bootstub/arm9/bootstub.elf
 	ndstool -h 0x200 -c build/$@  -b resource/dslink.bmp "dslink;the wifi code loader;" \
 	-7 build/bootstub/arm7/bootstub.elf -9 build/bootstub/arm9/bootstub.elf
+	
+install: build/dslink.nds
+	install -d $(DESTDIR)/opt/nds
+	install -m 644 $@ $(DESTDIR)/opt/nds
